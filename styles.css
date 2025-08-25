@@ -1,0 +1,143 @@
+/* Reset / base */
+*,
+*::before,
+*::after { box-sizing: border-box; }
+
+:root {
+  --bg: #f7fdf9;          /* very light green background */
+  --panel: #ffffff;       /* white cards */
+  --text: #1b4332;        /* dark green text */
+  --muted: #52796f;       /* softer muted green */
+  --accent: #2d6a4f;      /* primary green */
+  --accent-2: #1b4332;    /* darker green for gradient */
+  --danger: #d62828;      /* red for errors (kept for later) */
+  --ring: rgba(45, 106, 79, 0.25);
+  --radius: 12px;
+  --shadow: 0 6px 18px rgba(0,0,0,0.08);
+}
+
+html, body {
+  height: 100%;
+  margin: 0;
+  font-family: system-ui, sans-serif;
+  color: var(--text);
+  background: var(--bg);
+  line-height: 1.5;
+}
+
+/* Layout */
+.container {
+  min-height: 100%;
+  display: grid;
+  grid-template-rows: 1fr auto;
+  align-items: center;
+  justify-items: center;
+  padding: 2rem 1rem;
+}
+
+.card {
+  width: min(600px, 92vw);
+  background: var(--panel);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  padding: 2rem;
+  border: 1px solid #d9f0e4;
+}
+
+.card__header {
+  margin-bottom: 1rem;
+  text-align: center;
+}
+.card__title {
+  margin: 0;
+  font-size: clamp(1.5rem, 1rem + 2vw, 2rem);
+  color: var(--accent);
+}
+.card__subtitle {
+  margin: 0.25rem 0 0;
+  color: var(--muted);
+  font-size: 0.95rem;
+}
+
+/* Form */
+.form {
+  margin-top: 1.5rem;
+}
+
+.form__field {
+  display: grid;
+  gap: .5rem;
+  margin-bottom: 1rem;
+}
+
+.form__label {
+  font-weight: 600;
+  color: var(--accent);
+}
+
+.form__input {
+  padding: .9rem 1rem;
+  border-radius: var(--radius);
+  border: 1px solid #cde7da;
+  background: #f9fdfb;
+  color: var(--text);
+  outline: none;
+  transition: border-color .2s, box-shadow .2s;
+}
+
+.form__input::placeholder { color: #94a3b8; }
+
+.form__input:focus {
+  border-color: var(--accent);
+  box-shadow: 0 0 0 4px var(--ring);
+  background: white;
+}
+
+.form__hint {
+  color: var(--muted);
+  font-size: .9rem;
+}
+
+.form__note {
+  color: var(--muted);
+  font-size: .85rem;
+  margin-top: .5rem;
+}
+
+/* Button */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: .85rem 1.5rem;
+  border-radius: var(--radius);
+  border: none;
+  font-weight: 600;
+  background: linear-gradient(180deg, var(--accent), var(--accent-2));
+  color: white;
+  cursor: not-allowed;  /* we’ll enable with JS later */
+  opacity: .7;
+  transition: background .2s, transform .1s;
+}
+
+.btn:active {
+  transform: scale(0.97);
+}
+
+/* Results placeholder */
+.message {
+  margin-top: 1rem;
+  min-height: 1.5rem;
+}
+
+.results {
+  margin-top: 1rem;
+}
+
+/* Footer */
+.footer {
+  opacity: .8;
+  margin-top: 1.5rem;
+  text-align: center;
+}
+.footer small { color: var(--muted); }

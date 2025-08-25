@@ -1,0 +1,64 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <title>PAN Lookup</title>
+        <link rel="stylesheet" href="styles.css" />
+       
+    </head>
+    
+    <body>
+        <main class="container">
+            <section class="card">
+                <header class="card__header">
+                    <h1 class="card__title">PAN Lookup</h1>
+                    <p class="card__subtitle">Enter a PAN to find related records.</p>
+                </header>
+
+                <!-- Form (no JS yet) -->
+                <form class="form" action="#" method="post" novalidate>
+                    <div class="form__field">
+                        <label for="pan" class="form__label">PAN</label>
+                        <!-- pattern is optional; adjust/remove later if your format differs -->
+
+                        <input
+                        id="pan"
+                        name="pan"
+                        class="form__input"
+                        type="text"
+                        inputmode="numeric"
+                        autocomplete="off"
+                        placeholder="Enter 16-digit PAN"
+                        maxlength="16"
+                        pattern="\d{16}"
+                        aria-describedby="panHelp"
+                        required
+                        />
+                        <small id="panHelp" class="form__hint">
+                            Must be exactly <strong>16 digits</strong>.
+                        </small>
+
+                    </div>
+
+                    <button class="btn btn--primary" type="submit" disabled>
+                        Search
+                    </button>
+                </form>
+
+                <!-- Placeholder for messages/results (empty for now) -->
+                <div class="message" aria-live="polite"></div>
+                <div class="results">
+                    <!-- in future: show summary cards/tables here -->
+                </div>
+            </section>
+
+            <footer class="footer">
+                <small>© 2025 PAN Lookup • Prototype</small>
+            </footer>
+        </main>
+
+         <script src="index.js"></script>
+    </body>
+</html>
+
